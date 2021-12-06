@@ -118,6 +118,7 @@ fn parse_lines(input: &str) -> IResult<&str, Vec<Line>> {
     separated_list1(line_ending, parse_line)(input)
 }
 
+
 fn main() {
     let input = include_str!("data.txt");
 
