@@ -62,9 +62,10 @@ impl Display for Line {
 }
 
 
-fn problem_1(lines: &[Line]) -> u32 {
-    let lines = lines.iter()
-        .filter(|&l| l.a.x == l.b.x || l.a.y == l.b.y);
+fn get_overlap_count<'a, I>(lines: I) -> u32
+where
+    I: Iterator<Item = &'a Line>
+{
     let mut overlaps: HashMap<Point, u32> = HashMap::new();
 
     for line in lines {
@@ -82,22 +83,14 @@ fn problem_1(lines: &[Line]) -> u32 {
         .count() as u32
 }
 
-fn problem_2(lines: &[Line]) -> u32 {
-    let mut overlaps: HashMap<Point, u32> = HashMap::new();
+fn problem_1(lines: &[Line]) -> u32 {
+    let lines = lines.iter()
+        .filter(|&l| l.a.x == l.b.x || l.a.y == l.b.y);
+    get_overlap_count(lines)
+}
 
-    for line in lines {
-        for point in line.iter_intersecting() {
-            if let Some(n) = overlaps.get_mut(&point) {
-                *n += 1;
-            } else {
-                overlaps.insert(point, 1);
-            }
-        }
-    }
-
-    overlaps.values()
-        .filter(|&&overlap_num| overlap_num >= 2)
-        .count() as u32
+fn problem_2(lines: &[Line]) -> u32 { 
+    get_overlap_count(lines.iter()) 
 }
 
 
