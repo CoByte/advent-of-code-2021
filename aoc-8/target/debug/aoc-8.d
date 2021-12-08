@@ -1,0 +1,1 @@
+C:\Users\owen3\programming\advent-of-code-2021\aoc-8\target\debug\aoc-8.exe: C:\Users\owen3\programming\advent-of-code-2021\aoc-8\src\data.txt C:\Users\owen3\programming\advent-of-code-2021\aoc-8\src\main.rs
