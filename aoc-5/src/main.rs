@@ -22,8 +22,7 @@ struct Line {
 }
 
 fn step_between(a: u32, b: u32) -> Box<dyn Iterator<Item = u32>> {
-    let i_a = a as i32;
-    let i_b = b as i32;
+    let (i_a, i_b) = (a as i32, b as i32);
     let step = (i_b - i_a).signum();    
 
     if a == b {
@@ -70,11 +69,7 @@ where
 
     for line in lines {
         for point in line.iter_intersecting() {
-            if let Some(n) = overlaps.get_mut(&point) {
-                *n += 1;
-            } else {
-                overlaps.insert(point, 1);
-            }
+            *overlaps.entry(point).or_insert(0) += 1
         }
     }
 

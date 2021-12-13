@@ -2,8 +2,6 @@ use std::{slice::SliceIndex, ops::RangeBounds};
 
 use itertools::Itertools;
 
-
-
 struct FlatGrid<T> {
     grid: Vec<T>,
     width: usize,

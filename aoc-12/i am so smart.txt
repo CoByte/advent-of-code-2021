@@ -1,0 +1,24 @@
+start
+|-Large(A)
+| |-Small(c)
+| | |-Large(A)
+| |   |-Small(b)
+| |   | |-Large(A)
+| |   | | |-end
+| |   | |-end
+| |   |-end
+| |-Small(b)
+| | |-Large(A)
+| | | |-Small(c)
+| | | | |-Large(A)
+| | | |   |-end
+| | | |-end
+| | |-end
+| |-end
+|-Small(b)
+  |-Large(A)
+  | |-Small(c)
+  | | |-Large(A)
+  | |   |-end
+  | |-end
+  |-end
